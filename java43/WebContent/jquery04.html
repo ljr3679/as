@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#b1').click(function () {
+			$.ajax({ /* 비동기통신 */
+				url: "call2.jsp", //1.
+				data:{//2.
+					num : $('#num').val()
+				},
+				success: function(result){
+					console.log("받은데이터:" + result)
+					if (result == '최우수') {
+						alert('최우수 입니다')
+					} else if(result == '우수'){
+						location.href="http://www.naver.com"
+					}else{
+						alert('보통보통 입니다')
+					}
+				}
+			})
+		})
+		})
+	</script>
+</head>
+<body>
+	점수<input type ="text" id="num">
+	<button id="b1">너의 점수를 입력해봐라~~</button>
+	
+
+</body>
+</html>
